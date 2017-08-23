@@ -38,9 +38,9 @@ describe MetaTags::ViewHelper, 'displaying keywords' do
     end
   end
 
-  it 'should lowercase keywords' do
-    subject.display_meta_tags(site: 'someSite', keywords: 'someKeywords').tap do |meta|
-      expect(meta).to have_tag('meta', with: { content: "somekeywords", name: "keywords" })
+  it 'should not lowercase keywords' do
+    subject.display_meta_tags(site: 'someSite', keywords: 'English Dictionary, word').tap do |meta|
+      expect(meta).to have_tag('meta', with: { content: "English Dictionary, word", name: "keywords" })
     end
   end
 
